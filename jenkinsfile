@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    tools {
+        maven 'maven'
+    }
+    
+    stages {
+        stage ('git') {
+            steps {
+            git 'https://github.com/SHILPA123-sb/pipeline-demo.git'
+        }
+        }
+        stage ('build') {
+            steps {
+                bat "mvn clean package"
+            }
+        }
+    }
+}
